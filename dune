@@ -1,0 +1,4 @@
+(executable
+  (name funkt)
+  (public_name funkt)
+  (libraries str))
