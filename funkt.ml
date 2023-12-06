@@ -1,7 +1,11 @@
-module StringSet = Set.Make(String)
+module String = struct
+  include String
+  module Set = Set.Make(String)
+end
 
 let _ =
-  In_channel.input_lines stdin
+  stdin
+  |> In_channel.input_lines
   |> List.concat_map Str.(split (regexp "[ \t.,;:()]+"))
-  |> StringSet.of_list
-  |> StringSet.iter print_endline
+  |> String.Set.of_list
+  |> String.Set.iter print_endline
