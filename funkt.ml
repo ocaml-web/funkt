@@ -1,10 +1,5 @@
 module StringSet = Set.Make(String)
-
-module IterPrint : sig
-  val f : string list -> unit
-end = struct
-  let f = List.iter (fun s -> Out_channel.output_string stdout (s ^ "\n"))
-end
+module IterPrint = IterPrint.Make(List)
 
 let _ =
   stdin
